@@ -7,11 +7,13 @@
     "preview": {
       "distribution": "internal",
       "android": {
+        "image": "sdk-58",
         "buildType": "apk"
       }
     },
     "production": {
       "android": {
+        "image": "sdk-58",
         "buildType": "app-bundle"
       }
     }

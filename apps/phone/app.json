@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "owner": "frenchtrs-team",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "net.frenchtr.goaltracker"
@@ -22,6 +23,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8dccb42d-e3e2-4415-bcd4-8bb71a309b99"
+      }
     }
   }
 }
+

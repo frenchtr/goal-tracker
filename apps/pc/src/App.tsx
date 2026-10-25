@@ -1,14 +1,48 @@
-import { rulesPackageName } from "@goal-tracker/rules";
+import { type AppData } from "@goal-tracker/rules";
+import { useEffect, useState } from "react";
+import { GoalsPanel } from "./GoalsPanel";
+import { LogPanel } from "./LogPanel";
+import { MetricsPanel } from "./MetricsPanel";
+import { WeekReviewPanel } from "./WeekReviewPanel";
+import { loadAppData, saveAppData } from "./storage";
 
 export default function App() {
+  const [data, setData] = useState<AppData | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      const loaded = await loadAppData();
+      if (!cancelled) setData(loaded);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  async function update(next: AppData) {
+    setData(next);
+    await saveAppData(next);
+  }
+
+  if (!data) {
+    return (
+      <div className="app">
+        <p>Loading…</p>
+      </div>
+    );
+  }
+
   return (
     <div className="app">
       <header>
         <h1>Goal Tracker</h1>
       </header>
-      <main>
-        <p>PC</p>
-        <p className="meta">Shared rules: {rulesPackageName}</p>
+      <main className="panels">
+        <GoalsPanel data={data} onChange={(next) => void update(next)} />
+        <MetricsPanel data={data} onChange={(next) => void update(next)} />
+        <LogPanel data={data} onChange={(next) => void update(next)} />
+        <WeekReviewPanel data={data} />
       </main>
     </div>
   );
