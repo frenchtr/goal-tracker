@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+coverage/
+.expo/
+.expo-shared/
+*.log
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+credentials.json
+.DS_Store
+Thumbs.db
