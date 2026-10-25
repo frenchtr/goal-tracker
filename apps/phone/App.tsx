@@ -1,31 +1,57 @@
-import { rulesPackageName } from "@goal-tracker/rules";
+import { type AppData } from "@goal-tracker/rules";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
+import { GoalsScreen } from "./src/GoalsScreen";
+import { loadAppData, saveAppData } from "./src/storage";
 
 export default function App() {
+  const [data, setData] = useState<AppData | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      const loaded = await loadAppData();
+      if (!cancelled) setData(loaded);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  async function update(next: AppData) {
+    setData(next);
+    await saveAppData(next);
+  }
+
+  if (!data) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator />
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Goal Tracker</Text>
-      <Text>Phone</Text>
-      <Text style={styles.meta}>Shared rules: {rulesPackageName}</Text>
+      <GoalsScreen data={data} onChange={(next) => void update(next)} />
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
+    padding: 24,
+    paddingTop: 56,
+    gap: 16,
   },
   title: {
     fontSize: 24,
     fontWeight: "600",
-  },
-  meta: {
-    color: "#667",
   },
 });
