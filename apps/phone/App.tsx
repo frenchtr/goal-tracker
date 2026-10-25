@@ -5,6 +5,7 @@ import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-nat
 import { GoalsScreen } from "./src/GoalsScreen";
 import { LogScreen } from "./src/LogScreen";
 import { MetricsScreen } from "./src/MetricsScreen";
+import { WeekReviewScreen } from "./src/WeekReviewScreen";
 import { loadAppData, saveAppData } from "./src/storage";
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
       <GoalsScreen data={data} onChange={(next) => void update(next)} />
       <MetricsScreen data={data} onChange={(next) => void update(next)} />
       <LogScreen data={data} onChange={(next) => void update(next)} />
+      <WeekReviewScreen data={data} />
       <StatusBar style="auto" />
     </ScrollView>
   );

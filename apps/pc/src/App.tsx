@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { GoalsPanel } from "./GoalsPanel";
 import { LogPanel } from "./LogPanel";
 import { MetricsPanel } from "./MetricsPanel";
+import { WeekReviewPanel } from "./WeekReviewPanel";
 import { loadAppData, saveAppData } from "./storage";
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
         <GoalsPanel data={data} onChange={(next) => void update(next)} />
         <MetricsPanel data={data} onChange={(next) => void update(next)} />
         <LogPanel data={data} onChange={(next) => void update(next)} />
+        <WeekReviewPanel data={data} />
       </main>
     </div>
   );
