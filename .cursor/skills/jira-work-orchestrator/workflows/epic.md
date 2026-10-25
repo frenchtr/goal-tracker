@@ -8,7 +8,7 @@ Default status path: `To Do → Plan → Implement → Test → Review → Done`
 
 **Approval gate:** All plans require explicit user approval before plan-dependent decomposition, child creation, or implementation begins.
 
-**Branch policy:** The Epic owns an integration branch. Child Stories and Tasks may each have their own branch; their completed changes are merged into the Epic integration branch according to the approved integration plan. Subtasks never get their own branches.
+**Branch policy:** The Epic owns an integration branch. Child Stories and Tasks may each have their own branch; their completed changes are merged into the Epic integration branch according to the approved integration plan. Subtasks never get their own branches. Name the Epic branch and PR per `procedures/naming-conventions.md`.
 
 **Terminal policy:** Do not touch an issue already in `Done`. Do not transition this Epic to `Done` automatically; stop in `Review` and request human review of the overall deliverable.
 
@@ -37,7 +37,7 @@ Create an approved delivery plan spanning child work and Epic-level integration.
 4. Define how completion will be evaluated across children, including required end-to-end or integration checks.
 5. Present the plan to the user and **pause for explicit approval**.
 6. After approval, invoke `procedures/document-work.md` for Epic-level documentation and diagrams that materially help delivery, create or update child issues, and link supporting artifacts as warranted.
-7. Create or reuse one Epic integration branch named `integration/<lowercase-issue-key>-<work-item-title>`, unless repository conventions specify another pattern. Verify that it is appropriate for the target repository and does not overwrite unrelated work.
+7. Create or reuse one Epic integration branch named `integration/<lowercase-issue-key>-<title-slug>` per `procedures/naming-conventions.md`, unless repository conventions specify another pattern. Verify that it is appropriate for the target repository and does not overwrite unrelated work.
 8. Invoke `procedures/delegate-work.md` to coordinate child work and communicate the approved plan and integration contract.
 9. Transition to `Implement` when the approved decomposition is actionable and coordination is established.
 

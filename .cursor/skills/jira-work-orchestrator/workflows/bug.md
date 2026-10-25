@@ -6,7 +6,7 @@ Applies to Jira issue type `Bug`. Default status path: `To Do → Plan → Imple
 
 **Approval gate:** All plans require explicit user approval before code changes.
 
-**Branch policy:** One bug-fix branch for the Bug's fix and tests. Subtasks do not get their own branches.
+**Branch policy:** One bug-fix branch for the Bug's fix and tests. Subtasks do not get their own branches. Name the branch and PR per `procedures/naming-conventions.md`.
 
 **Terminal policy:** Do not touch an issue already in `Done`. Do not transition this Bug to `Done`; stop in `Review` after creating the PR and notifying the user.
 
@@ -53,7 +53,7 @@ Apply a narrow, reviewable fix.
 
 ### Actions
 1. Inspect repository state and reuse existing work where appropriate.
-2. Create or reuse a branch named `bugfix/<lowercase-issue-key>-<work-item-title>`, unless repository conventions specify another pattern.
+2. Create or reuse a branch named `bugfix/<lowercase-issue-key>-<title-slug>` per `procedures/naming-conventions.md`, unless repository conventions specify another pattern.
 3. Invoke `procedures/implement-work.md` with the approved Bug plan.
 4. Keep changes narrowly scoped. Do not fold unrelated refactors or features into the fix.
 5. **Do not author tests during this stage.** Preserve existing tests and test infrastructure.

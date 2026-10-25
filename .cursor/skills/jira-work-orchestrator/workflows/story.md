@@ -6,7 +6,7 @@ Applies to Jira issue type `Story`. Default status path: `To Do → Plan → Imp
 
 **Approval gate:** All plans require explicit user approval. The Story must pause after presenting the plan and before creating plan-dependent artifacts, subtasks, or implementation work.
 
-**Branch policy:** One feature branch for the Story's implementation and tests. Subtasks do not get their own branches.
+**Branch policy:** One feature branch for the Story's implementation and tests. Subtasks do not get their own branches. Name the branch and PR per `procedures/naming-conventions.md`.
 
 **Terminal policy:** Do not touch an issue already in `Done`. Do not transition this Story to `Done`; stop in `Review` after creating the PR and notifying the user.
 
@@ -53,7 +53,7 @@ Implement the approved scope.
 
 ### Actions
 1. Inspect the repository, existing branches, and current work before creating a branch.
-2. Create or reuse one parent feature branch named `feature/<lowercase-issue-key>-<work-item-title>`, unless repository conventions specify another pattern.
+2. Create or reuse one parent feature branch named `feature/<lowercase-issue-key>-<title-slug>` per `procedures/naming-conventions.md`, unless repository conventions specify another pattern.
 3. Invoke `procedures/implement-work.md`.
 4. Orchestrate implementation agents on the shared parent branch. Parallelize only when files/resources do not conflict; serialize conflicting changes and integration.
 5. **Do not write tests during this stage.** Do not ask implementation agents to add tests. Do not remove existing tests.

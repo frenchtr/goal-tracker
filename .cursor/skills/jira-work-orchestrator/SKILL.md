@@ -60,12 +60,12 @@ This skill defines **production policy and orchestration**, not implementation d
 ### Branch strategy
 
 - **Story:** one feature branch for the Story's implementation and tests.
-- **Task:** one task branch for the Task's implementation and tests.
+- **Task:** one housekeeping branch for the Task's implementation and tests.
 - **Subtask:** no branch of its own. A subtask contributes to its parent's branch and integration strategy.
 - **Epic:** the only exception to the single-branch rule. The Epic owns an integration branch. Child Stories and Tasks may have their own branches; their changes are merged into the Epic integration branch according to the approved integration plan. Subtasks still do not get their own branches.
 - Bugs use one bug-fix branch unless a project-specific policy explicitly maps them to another branch strategy.
 - Inspect repository conventions and existing branches first. Never create branches that conflict with these rules.
-- Branch naming defaults are configured in the relevant workflow/procedure files, not treated as universal pipeline logic.
+- Branch and PR naming defaults live in `procedures/naming-conventions.md`. Workflows and `procedures/implement-work.md` / `procedures/create-pull-request.md` apply that matrix; do not invent alternate prefixes or PR tags.
 
 ### Delegation
 
