@@ -23,15 +23,15 @@ The remote starts empty. The first implementation that needs a branch must boots
 4. If the remote already has commits, skip bootstrap. Branch from the current default branch, or from the Epic integration branch when the approved integration plan says to.
 5. Select the branch strategy from the issue-type workflow:
    - Story: one feature branch.
-   - Task: one task branch.
+   - Task: one housekeeping branch.
    - Bug: one bug-fix branch.
    - Subtask: no branch of its own; use the parent branch/integration strategy.
    - Epic: one Epic integration branch; child branches may be merged into it according to the approved integration plan.
-6. Determine the branch name from project conventions; otherwise use:
-   - Story: `feature/<lowercase-issue-key>-<work-item-title>`
-   - Task: `housekeeping/<lowercase-issue-key>-<work-item-title>`
-   - Bug: `bugfix/<lowercase-issue-key>-<work-item-title>`
-   - Epic integration: `integration/<lowercase-issue-key>-<work-item-title>`
+6. Determine the branch name from `procedures/naming-conventions.md` (repository conventions may override when they do not conflict with the issue-type branch strategy):
+   - Story: `feature/<lowercase-issue-key>-<title-slug>`
+   - Task: `housekeeping/<lowercase-issue-key>-<title-slug>`
+   - Bug: `bugfix/<lowercase-issue-key>-<title-slug>`
+   - Epic integration: `integration/<lowercase-issue-key>-<title-slug>`
 7. Reuse an existing appropriate branch if it belongs to this work and is safe to continue. Do not overwrite unrelated work.
 8. Implement only the approved scope and follow project conventions.
 9. Coordinate contributors on the designated branch. Partition work to avoid simultaneous edits to the same files; serialize conflicting work.

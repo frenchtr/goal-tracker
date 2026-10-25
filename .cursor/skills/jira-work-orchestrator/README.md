@@ -13,6 +13,7 @@ A modular, issue-key-driven production workflow for Jira Stories, Tasks, Bugs, a
 - `procedures/document-work.md` — Confluence pages in space GT, and Figma diagrams and mockups in the Goal Tracker folder.
 - `procedures/delegate-work.md` — adaptive coordination and delegation.
 - `procedures/implement-work.md` — implementation on https://github.com/frenchtr/goal-tracker, including first-push setup when the repository is empty.
+- `procedures/naming-conventions.md` — branch and PR title naming by work item type.
 - `procedures/create-pull-request.md` — GitHub pull requests in `frenchtr/goal-tracker`.
 - `procedures/transition-issue.md` — strict Jira transitions.
 - `procedures/flag-work-item.md` — Jira flagging and failure recording.
@@ -36,6 +37,7 @@ The orchestrator references the existing `write-test-case` and `write-automated-
 - Stories and Tasks use one branch each; Bugs use one bug-fix branch.
 - Epics use an integration branch; child Story/Task branches merge into it according to the approved plan.
 - Subtasks never get their own branches.
+- Branch prefixes and PR title tags follow `procedures/naming-conventions.md` (`feature` / `[FEATURE]`, `bugfix` / `[BUGFIX]`, `housekeeping` / `[HOUSEKEEPING]`, `integration` / `[INTEGRATION]`).
 - Failures stop progress, flag the Jira work item, and record what went wrong.
 - Only Jira-exposed transitions may be used; the result is verified after each transition.
 - Automated execution stops in Review; it does not merge PRs or transition issues to Done.

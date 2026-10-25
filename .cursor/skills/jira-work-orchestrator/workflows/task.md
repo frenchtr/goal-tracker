@@ -6,7 +6,7 @@ Applies to Jira issue type `Task`. Default status path: `To Do → Plan → Impl
 
 **Approval gate:** All plans require explicit user approval before plan-dependent execution.
 
-**Branch policy:** A Task gets one task branch. If it is a child of an Epic, its branch is merged into the Epic integration branch according to the approved integration plan. Subtasks do not get branches.
+**Branch policy:** A Task gets one housekeeping branch. If it is a child of an Epic, its branch is merged into the Epic integration branch according to the approved integration plan. Subtasks do not get branches. Name the branch and PR per `procedures/naming-conventions.md`.
 
 **Terminal policy:** Do not touch an issue already in `Done`. Do not transition this Task to `Done`; stop in `Review` after the deliverable is ready for review.
 
@@ -26,7 +26,7 @@ Inspect the description, expected outcome, acceptance criteria, linked issues, a
 ## Implement
 
 1. Inspect repository state and existing branches.
-2. Create or reuse one branch named `task/<lowercase-issue-key>-<work-item-title>`, unless repository conventions specify another pattern.
+2. Create or reuse one branch named `housekeeping/<lowercase-issue-key>-<title-slug>` per `procedures/naming-conventions.md`, unless repository conventions specify another pattern.
 3. Invoke `procedures/implement-work.md`.
 4. Coordinate contributors on the same Task branch; avoid concurrent edits to the same files.
 5. Do not author tests during this stage if the project workflow separates implementation and testing. Preserve existing tests.
