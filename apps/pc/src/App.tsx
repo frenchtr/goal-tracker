@@ -1,6 +1,7 @@
 import { type AppData } from "@goal-tracker/rules";
 import { useEffect, useState } from "react";
 import { GoalsPanel } from "./GoalsPanel";
+import { MetricsPanel } from "./MetricsPanel";
 import { loadAppData, saveAppData } from "./storage";
 
 export default function App() {
@@ -35,8 +36,9 @@ export default function App() {
       <header>
         <h1>Goal Tracker</h1>
       </header>
-      <main>
+      <main className="panels">
         <GoalsPanel data={data} onChange={(next) => void update(next)} />
+        <MetricsPanel data={data} onChange={(next) => void update(next)} />
       </main>
     </div>
   );

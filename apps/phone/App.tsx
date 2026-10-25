@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
 import { GoalsScreen } from "./src/GoalsScreen";
+import { MetricsScreen } from "./src/MetricsScreen";
 import { loadAppData, saveAppData } from "./src/storage";
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Goal Tracker</Text>
       <GoalsScreen data={data} onChange={(next) => void update(next)} />
+      <MetricsScreen data={data} onChange={(next) => void update(next)} />
       <StatusBar style="auto" />
     </ScrollView>
   );
