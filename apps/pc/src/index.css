@@ -36,6 +36,11 @@ p {
   color: #57534e;
 }
 
+.panels {
+  display: grid;
+  gap: 32px;
+}
+
 .panel {
   display: grid;
   gap: 12px;
