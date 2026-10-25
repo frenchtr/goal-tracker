@@ -109,3 +109,26 @@ button.danger {
   background: #b91c1c;
   color: #fff;
 }
+
+.review-card {
+  display: grid;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.review-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.day-grid {
+  display: grid;
+  gap: 4px;
+}
+
+.day.muted {
+  color: #a8a29e;
+}
