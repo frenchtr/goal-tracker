@@ -74,7 +74,8 @@ p {
 }
 
 .row-actions,
-.composer {
+.composer,
+.chip-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

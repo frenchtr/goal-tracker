@@ -1,6 +1,7 @@
 import { type AppData } from "@goal-tracker/rules";
 import { useEffect, useState } from "react";
 import { GoalsPanel } from "./GoalsPanel";
+import { LogPanel } from "./LogPanel";
 import { MetricsPanel } from "./MetricsPanel";
 import { loadAppData, saveAppData } from "./storage";
 
@@ -39,6 +40,7 @@ export default function App() {
       <main className="panels">
         <GoalsPanel data={data} onChange={(next) => void update(next)} />
         <MetricsPanel data={data} onChange={(next) => void update(next)} />
+        <LogPanel data={data} onChange={(next) => void update(next)} />
       </main>
     </div>
   );
